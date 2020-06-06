@@ -1,1 +1,5 @@
-<h1>Our new Post</h1>
+<h1>A new Post</h1>
+<textarea rows="6" [value]="newPost" #postInput></textarea>
+<hr>
+<button (click)="onClickSavePost(postInput)">Save Post</button>
+<p> {{newPost}} </p>
