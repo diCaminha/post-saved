@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { Post } from 'src/app/models/post';
 
 @Component({
     selector: 'app-new-post',
@@ -7,10 +9,14 @@ import { Component } from '@angular/core';
 })
 export class NewPostComponent {
 
-    newPost: String = "";
-    enteredValue: String = "";
+    @Output() newPost = new EventEmitter<Post>();
 
-    onClickSavePost(postInput: HTMLTextAreaElement) {
-        this.newPost = this.enteredValue;
+    onAddPost(postForm: NgForm) {
+        const post: Post = {
+            title: postForm.value.title,
+            link: postForm.value.link
+        };
+
+        this.newPost.emit(post);
     }
 } 

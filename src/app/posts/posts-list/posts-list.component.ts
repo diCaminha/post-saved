@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Post } from 'src/app/models/post';
 
 @Component({
@@ -8,18 +8,5 @@ import { Post } from 'src/app/models/post';
 })
 export class PostsListComponent {
 
-    posts: Post[] = [
-        { 
-            title: 'A mock Post',
-            link: 'http:dededededede.com'
-        },
-        { 
-            title: 'A mock Post',
-            link: 'http:dededededede.com'
-        },
-        { 
-            title: 'A mock Post',
-            link: 'http:dededededede.com'
-        }
-    ];
+    @Input() posts: Post[];
 }
