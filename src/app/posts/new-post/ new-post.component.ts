@@ -1,6 +1,7 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Post } from 'src/app/models/post';
+import { PostsService } from '../posts.service';
 
 @Component({
     selector: 'app-new-post',
@@ -9,7 +10,7 @@ import { Post } from 'src/app/models/post';
 })
 export class NewPostComponent {
 
-    @Output() newPost = new EventEmitter<Post>();
+    constructor(public postsService: PostsService) {}
 
     onAddPost(postForm: NgForm) {
         const post: Post = {
@@ -17,6 +18,6 @@ export class NewPostComponent {
             link: postForm.value.link
         };
 
-        this.newPost.emit(post);
+        this.postsService.addPost(post);
     }
 } 
