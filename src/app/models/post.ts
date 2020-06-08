@@ -1,4 +1,5 @@
 export interface Post {
-    title: String,
-    link: String
+    id: string,
+    title: string,
+    link: string
 }

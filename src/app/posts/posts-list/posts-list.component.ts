@@ -14,6 +14,7 @@ export class PostsListComponent implements OnInit {
     constructor(public postsService: PostsService) {}
 
     ngOnInit() {
+        this.postsService.getPosts();
         this.postsService.getPostUpdateListener()
         .subscribe(posts => this.posts = posts);
     }

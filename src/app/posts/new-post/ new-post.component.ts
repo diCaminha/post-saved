@@ -14,6 +14,7 @@ export class NewPostComponent {
 
     onAddPost(postForm: NgForm) {
         const post: Post = {
+            id: null,
             title: postForm.value.title,
             link: postForm.value.link
         };
